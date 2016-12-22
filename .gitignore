@@ -5,3 +5,9 @@ build/
 
 # Idea #
 .idea/
+
+# Webpack #
+dist/
+
+# NPM #
+node_modules/
