@@ -1,2 +1,3 @@
 rootProject.name = 'unikernel-kotlin'
+include 'api'
 
