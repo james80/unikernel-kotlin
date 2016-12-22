@@ -1,5 +1,5 @@
 base:
-  cloudius/osv-openjdk
+  cloudius/osv-openjdk8
 
 cmdline:
   java.so -jar unikernel-kotlin.jar
