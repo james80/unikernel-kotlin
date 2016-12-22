@@ -1,0 +1,11 @@
+base:
+  cloudius/osv-openjdk
+
+cmdline:
+  java.so -jar unikernel-kotlin.jar
+
+build:
+  ./gradlew clean build
+
+files:
+  /unikernel-kotlin.jar: build/libs/unikernel-kotlin.jar
