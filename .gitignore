@@ -11,3 +11,6 @@ dist/
 
 # NPM #
 node_modules/
+
+# Capstan #
+ROOTFS/

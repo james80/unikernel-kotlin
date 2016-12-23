@@ -1,0 +1,11 @@
+base:
+  cloudius/osv-node
+
+cmdline:
+  /libnode.so /start.js
+
+build:
+  ../gradlew :web:clean :web:build
+
+files:
+  /start.js: scripts/start.js

@@ -5,7 +5,7 @@ module.exports = {
     entry: ['babel-polyfill', './src/index.js'],
     output: {
         filename: './bundle.js',
-        path: './build/'
+        path: './ROOTFS/static/'
     },
     module: {
         loaders: [

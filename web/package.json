@@ -29,5 +29,5 @@
     "start": "start-storybook -p 9001",
     "webpack": "webpack"
   },
-  "engine": "node 6.2.1"
+  "engine": "node 6.9.2"
 }

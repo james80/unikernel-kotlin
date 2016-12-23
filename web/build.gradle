@@ -1,21 +1,35 @@
 apply plugin: 'com.moowork.node'
 
 buildscript {
+    ext {
+        gradle_node_version = '1.0.1'
+    }
     repositories {
         maven {
-            url "https://plugins.gradle.org/m2/"
+            url 'https://plugins.gradle.org/m2/'
         }
     }
 
     dependencies {
-        classpath "com.moowork.gradle:gradle-node-plugin:1.0.1"
+        classpath "com.moowork.gradle:gradle-node-plugin:$gradle_node_version"
     }
 }
 
 task clean() << {
-    delete "build"
+    delete 'ROOTFS'
+    delete 'node_modules'
+}
+
+task buildScript(type: Exec) {
+    commandLine 'scripts/build.sh'
+    standardOutput = new ByteArrayOutputStream()
+    ext.output = {
+        return standardOutput.toString()
+    }
 }
 
 task build() << {
+    tasks.npm_install.execute()
     tasks.npm_run_webpack.execute()
+    tasks.buildScript.execute()
 }

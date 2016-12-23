@@ -5,7 +5,7 @@ cmdline:
   java.so -jar unikernel-kotlin-api.jar
 
 build:
-  ../gradlew clean build
+  ../gradlew :api:clean :api:build
 
 files:
   /unikernel-kotlin-api.jar: build/libs/unikernel-kotlin-api.jar
