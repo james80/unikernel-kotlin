@@ -10,7 +10,7 @@ const sharedCompany = {
     description: 'This is a Super Awesome Company!'
 };
 
-storiesOf('companies.CompaniesGrid', module)
+storiesOf('CompaniesGrid', module)
 
     .addDecorator(story => (
         <MuiThemeProvider muiTheme={getMuiTheme()}>

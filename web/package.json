@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "author": "Stephen James <james.80@gmail.com>",
   "scripts": {
-    "start": "node index.js"
+    "build": "webpack",
+    "start": "start-storybook -p 9001",
+    "startweb": "webpack-dev-server --content-base ROOTFS/static"
   },
   "dependencies": {
     "material-ui": "^0.15.2",
@@ -22,12 +24,9 @@
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.21.0",
-    "webpack": "^1.13.1"
-  },
-  "scripts": {
-    "pretest": "npm install",
-    "start": "start-storybook -p 9001",
-    "webpack": "webpack"
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.16.2"
   },
   "engine": "node 6.9.2"
 }

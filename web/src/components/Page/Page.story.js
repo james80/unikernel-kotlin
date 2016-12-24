@@ -1,10 +1,10 @@
 import React from "react";
-import {storiesOf, action, linkTo} from "@kadira/storybook";
+import {storiesOf} from "@kadira/storybook";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import getMuiTheme from "material-ui/styles/getMuiTheme";
-import CompaniesHeader from "./CompaniesHeader";
+import Page from "./Page";
 
-storiesOf('CompaniesHeader', module)
+storiesOf('Page', module)
 
     .addDecorator(story => (
         <MuiThemeProvider muiTheme={getMuiTheme()}>
@@ -13,6 +13,6 @@ storiesOf('CompaniesHeader', module)
     ))
 
     .add('default', () => (
-        <CompaniesHeader />
+        <Page/>
     ))
 ;

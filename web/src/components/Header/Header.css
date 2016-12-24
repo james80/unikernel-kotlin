@@ -1,0 +1,10 @@
+
+.Header {
+    display: inline;
+}
+
+.Header-img {
+    content: url("./image/logo.svg");
+    width: 100px;
+    height: 100px;
+}

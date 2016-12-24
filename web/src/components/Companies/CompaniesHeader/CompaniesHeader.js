@@ -1,6 +1,5 @@
 import React from "react";
 import RaisedButton from "material-ui/RaisedButton";
-import "./CompaniesHeader.css";
 
 const CompaniesHeader = () => {
 
