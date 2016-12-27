@@ -15,11 +15,6 @@ buildscript {
     }
 }
 
-task clean() << {
-    delete 'ROOTFS'
-    delete 'node_modules'
-}
-
 task buildScript(type: Exec) {
     commandLine 'scripts/build.sh'
     standardOutput = new ByteArrayOutputStream()
@@ -28,8 +23,13 @@ task buildScript(type: Exec) {
     }
 }
 
+task clean() << {
+    delete 'ROOTFS'
+    delete 'node_modules'
+}
+
 task build() << {
     tasks.npm_install.execute()
-    tasks.npm_run_webpack.execute()
+    tasks.npm_run_build.execute()
     tasks.buildScript.execute()
 }

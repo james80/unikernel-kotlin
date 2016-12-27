@@ -4,8 +4,8 @@
   "author": "Stephen James <james.80@gmail.com>",
   "scripts": {
     "build": "webpack",
-    "start": "start-storybook -p 9001",
-    "startweb": "webpack-dev-server --content-base ROOTFS/static"
+    "storybook": "start-storybook -p 9001",
+    "devserver": "webpack-dev-server --port 8081 --content-base ROOTFS/static"
   },
   "dependencies": {
     "material-ui": "^0.15.2",

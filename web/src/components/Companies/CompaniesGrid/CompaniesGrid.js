@@ -22,7 +22,6 @@ const CompaniesGrid = (props) => {
                 <TableBody>{
                     props.companiesData.map((row, index) => (
                         <TableRow key={index} selected={row.selected}>
-                            <TableRowColumn>{index}</TableRowColumn>
                             <TableRowColumn>{row.id}</TableRowColumn>
                             <TableRowColumn>{row.name}</TableRowColumn>
                             <TableRowColumn>{row.description}</TableRowColumn>

@@ -11,6 +11,7 @@ dist/
 
 # NPM #
 node_modules/
+npm-debug.log
 
 # Capstan #
 ROOTFS/

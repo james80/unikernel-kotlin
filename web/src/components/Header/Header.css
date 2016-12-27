@@ -3,8 +3,27 @@
     display: inline;
 }
 
+.Header-imgBlock {
+    display: inline-block;
+    margin: 10px;
+}
+
 .Header-img {
     content: url("./image/logo.svg");
     width: 100px;
     height: 100px;
+}
+
+.Header-textBlock {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.Header-title {
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.Header-subTitle {
+    font-size: 2em;
 }

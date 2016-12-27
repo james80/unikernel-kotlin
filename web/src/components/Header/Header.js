@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import "./Header.css";
 
 const Header = () => {
@@ -8,8 +8,8 @@ const Header = () => {
                 <img className="Header-img"/>
             </div>
             <div className="Header-textBlock">
-                <span className="Header-title">Most Amazing Companies</span>
-                <span className="Header-subTitle">Companies that do good things.</span>
+                <div className="Header-title">The Most Amazing Companies</div>
+                <div className="Header-subTitle">Companies that do good things.</div>
             </div>
         </div>
     );
