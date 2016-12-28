@@ -1,3 +1,4 @@
 rootProject.name = 'unikernel-kotlin'
 include 'api'
 include 'web'
+include 'proxy'

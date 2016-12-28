@@ -15,4 +15,8 @@ storiesOf('CompaniesHeader', module)
     .add('default', () => (
         <CompaniesHeader />
     ))
+
+    .add('with Modal', () => (
+        <CompaniesHeader />
+    ))
 ;
