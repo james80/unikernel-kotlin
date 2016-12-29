@@ -10,6 +10,10 @@ const sharedCompany = {
     description: 'This is a Super Awesome Company!'
 };
 
+const deleteFunc = (id) => {
+    console.log("delete" + id);
+}
+
 storiesOf('CompaniesGrid', module)
 
     .addDecorator(story => (
@@ -19,18 +23,21 @@ storiesOf('CompaniesGrid', module)
     ))
 
     .add('no companies', () => (
-        <CompaniesGrid companiesData={ [] }/>
+        <CompaniesGrid companies={ [] } deleteCompanyCallback={ deleteFunc }/>
     ))
 
     .add('one company', () => (
-        <CompaniesGrid companiesData={ [{...sharedCompany}] }/>
+        <CompaniesGrid companies={ [{...sharedCompany}] } deleteCompanyCallback={ deleteFunc }/>
     ))
 
     .add('multiple companies', () => (
-        <CompaniesGrid companiesData={ [
-            {...sharedCompany, id: 100},
-            {...sharedCompany, id: 200},
-            {...sharedCompany, id: 300}
-        ] }/>
+        <CompaniesGrid
+            companies={ [
+                {...sharedCompany, id: "100"},
+                {...sharedCompany, id: "200"},
+                {...sharedCompany, id: "300"}
+            ] }
+            deleteCompanyCallback={ deleteFunc }
+        />
     ))
 ;

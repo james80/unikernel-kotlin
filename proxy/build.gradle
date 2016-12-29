@@ -1,6 +1,8 @@
 apply plugin: 'kotlin'
 apply plugin: 'application'
 
+mainClassName = 'com.sj.ProxyApplicationKt'
+
 buildscript {
     ext {
         kotlin_version = '1.0.5-3'
@@ -18,14 +20,19 @@ repositories {
     mavenCentral()
 }
 
-jar {
-    baseName = 'unikernel-kotlin-proxy'
-    version = ''
-}
-
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
             "org.littleshoot:littleproxy:$littleproxy_version"
 }
 
-mainClassName = 'com.sj.ProxyApplicationKt'
+jar {
+    baseName = 'unikernel-kotlin-proxy'
+    version = ''
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': mainClassName
+        )
+    }
+}

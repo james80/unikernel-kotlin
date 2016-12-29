@@ -1,17 +1,16 @@
 import React from "react";
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from "material-ui/Table";
 import ContentClear from "material-ui/svg-icons/content/clear";
-import ImageEdit from "material-ui/svg-icons/image/edit";
+import IconButton from "material-ui/IconButton";
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from "material-ui/Table";
 
 const CompaniesGrid = (props) => {
 
-    const handleEditCompany = (id) => props.editCompanyCallback(id);
     const handleDeleteCompany = (id) => props.deleteCompanyCallback(id);
 
     return (
         <div>
             <Table>
-                <TableHeader>
+                <TableHeader displaySelectAll={false}>
                     <TableRow>
                         <TableHeaderColumn>ID</TableHeaderColumn>
                         <TableHeaderColumn>Name</TableHeaderColumn>
@@ -19,15 +18,16 @@ const CompaniesGrid = (props) => {
                         <TableHeaderColumn>Action</TableHeaderColumn>
                     </TableRow>
                 </TableHeader>
-                <TableBody>{
-                    props.companiesData.map((row, index) => (
-                        <TableRow key={index} selected={row.selected}>
+                <TableBody displayRowCheckbox={false}>{
+                    props.companies.map((row, index) => (
+                        <TableRow key={index}>
                             <TableRowColumn>{row.id}</TableRowColumn>
                             <TableRowColumn>{row.name}</TableRowColumn>
                             <TableRowColumn>{row.description}</TableRowColumn>
                             <TableRowColumn>
-                                <ImageEdit />
-                                <ContentClear />
+                                <IconButton onTouchTap={ handleDeleteCompany(row.id) }>
+                                    <ContentClear />
+                                </IconButton>
                             </TableRowColumn>
                         </TableRow>
                     ))}
@@ -46,13 +46,8 @@ const companyShape = {
 }
 
 CompaniesGrid.propTypes = {
-    companiesData: arrayOf(shape(companyShape)),
-    editCompanyCallback: func,
-    deleteCompanyCallback: func
-};
-
-CompaniesGrid.defaultProps = {
-    companiesData: {}
+    companies: arrayOf(shape(companyShape)).isRequired,
+    deleteCompanyCallback: func.isRequired
 };
 
 export default CompaniesGrid;

@@ -4,14 +4,18 @@ import CompaniesGrid from "./CompaniesGrid/CompaniesGrid";
 
 const Companies = (props) => {
 
-    const handleAddCompany = () => props.addCompanyCallback();
-    const handleEditCompany = (id) => props.editCompanyCallback(id);
+    const handleAddCompany = (company) => props.addCompanyCallback(company);
     const handleDeleteCompany = (id) => props.deleteCompanyCallback(id);
 
     return (
         <div>
-            <CompaniesHeader />
-            <CompaniesGrid companiesData={ props.companies }/>
+            <CompaniesHeader
+                addCompanyCallback={ handleAddCompany }
+            />
+            <CompaniesGrid
+                companies={ props.companies }
+                deleteCompanyCallback={ handleDeleteCompany }
+            />
         </div>
     );
 };
@@ -25,14 +29,9 @@ const companyShape = {
 }
 
 Companies.propTypes = {
-    companies: arrayOf(shape(companyShape)),
-    addCompanyCallback: func,
-    editCompanyCallback: func,
-    deleteCompanyCallback: func
-};
-
-Companies.defaultProps = {
-    companies: {}
+    companies: arrayOf(shape(companyShape)).isRequired,
+    addCompanyCallback: func.isRequired,
+    deleteCompanyCallback: func.isRequired
 };
 
 export default Companies;
