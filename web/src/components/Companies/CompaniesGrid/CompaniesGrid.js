@@ -3,39 +3,44 @@ import ContentClear from "material-ui/svg-icons/content/clear";
 import IconButton from "material-ui/IconButton";
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from "material-ui/Table";
 
-const CompaniesGrid = (props) => {
+class CompaniesGrid extends React.Component {
 
-    const handleDeleteCompany = (id) => props.deleteCompanyCallback(id);
+    handleDeleteCompany = (event) => {
+        const {id} = event.currentTarget;
+        this.props.deleteCompanyCallback(id);
+    }
 
-    return (
-        <div>
-            <Table>
-                <TableHeader displaySelectAll={false}>
-                    <TableRow>
-                        <TableHeaderColumn>ID</TableHeaderColumn>
-                        <TableHeaderColumn>Name</TableHeaderColumn>
-                        <TableHeaderColumn>Description</TableHeaderColumn>
-                        <TableHeaderColumn>Action</TableHeaderColumn>
-                    </TableRow>
-                </TableHeader>
-                <TableBody displayRowCheckbox={false}>{
-                    props.companies.map((row, index) => (
-                        <TableRow key={index}>
-                            <TableRowColumn>{row.id}</TableRowColumn>
-                            <TableRowColumn>{row.name}</TableRowColumn>
-                            <TableRowColumn>{row.description}</TableRowColumn>
-                            <TableRowColumn>
-                                <IconButton onTouchTap={ handleDeleteCompany(row.id) }>
-                                    <ContentClear />
-                                </IconButton>
-                            </TableRowColumn>
+    render = () => {
+        return (
+            <div>
+                <Table>
+                    <TableHeader displaySelectAll={false}>
+                        <TableRow>
+                            <TableHeaderColumn>ID</TableHeaderColumn>
+                            <TableHeaderColumn>Name</TableHeaderColumn>
+                            <TableHeaderColumn>Description</TableHeaderColumn>
+                            <TableHeaderColumn>Action</TableHeaderColumn>
                         </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </div>
-    );
-};
+                    </TableHeader>
+                    <TableBody displayRowCheckbox={false}>{
+                        this.props.companies.map((row, index) => (
+                            <TableRow key={index}>
+                                <TableRowColumn>{row.id}</TableRowColumn>
+                                <TableRowColumn>{row.name}</TableRowColumn>
+                                <TableRowColumn>{row.description}</TableRowColumn>
+                                <TableRowColumn>
+                                    <IconButton id={ row.id } onTouchTap={ this.handleDeleteCompany }>
+                                        <ContentClear />
+                                    </IconButton>
+                                </TableRowColumn>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </div>
+        );
+    };
+}
 
 const {arrayOf, func, string, shape} = React.PropTypes;
 

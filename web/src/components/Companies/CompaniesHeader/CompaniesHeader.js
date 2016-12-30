@@ -18,20 +18,31 @@ class CompaniesHeader extends React.Component {
         };
     }
 
-    handleAdd = () => {
-        this.setState({open: true});
+    handleOpenDialogState = () => {
+        this.setState({
+            open: true,
+            company: {
+                name: null,
+                description: null
+            }
+        });
     };
 
-    handleCancel = () => {
-        this.setState({open: false});
+    handleCloseDialogState = () => {
+        this.setState({
+            open: false,
+            company: {
+                name: null,
+                description: null
+            }
+        });
     };
 
     handleSubmit = () => {
         const {company} = this.state;
-        console.log(company);
         this.props.addCompanyCallback(company);
-        this.setState({open: false});
-    }
+        this.handleCloseDialogState();
+    };
 
     handleNameChange = (event) => {
         this.setState({
@@ -40,7 +51,7 @@ class CompaniesHeader extends React.Component {
                 description: this.state.company.description
             }
         });
-    }
+    };
 
     handleDescriptionChange = (event) => {
         this.setState({
@@ -49,11 +60,12 @@ class CompaniesHeader extends React.Component {
                 description: event.target.value
             }
         });
-    }
+    };
 
     isSubmitDisabled = () => {
-        return !this.state.company.name && !this.state.company.description;
-    }
+        return !this.state.company.name
+            || !this.state.company.description;
+    };
 
     render = () => {
 
@@ -61,7 +73,7 @@ class CompaniesHeader extends React.Component {
             <FlatButton
                 label="Cancel"
                 primary={true}
-                onTouchTap={this.handleCancel}
+                onTouchTap={this.handleCloseDialogState}
             />,
             <FlatButton
                 label="Submit"
@@ -74,7 +86,7 @@ class CompaniesHeader extends React.Component {
         return (
             <div className="CompaniesHeader">
                 <div className="CompaniesHeader-button">
-                    <RaisedButton label="Add Company" onTouchTap={this.handleAdd}/>
+                    <RaisedButton label="Add Company" onTouchTap={this.handleOpenDialogState}/>
                     <Dialog
                         title="Please enter company details:"
                         actions={actions}

@@ -1,6 +1,7 @@
 import React from "react";
 import CompaniesHeader from "./CompaniesHeader/CompaniesHeader";
 import CompaniesGrid from "./CompaniesGrid/CompaniesGrid";
+import WithCompaniesHandler from "./WithCompaniesHandler";
 
 const Companies = (props) => {
 
@@ -34,4 +35,4 @@ Companies.propTypes = {
     deleteCompanyCallback: func.isRequired
 };
 
-export default Companies;
+export default WithCompaniesHandler(Companies);
