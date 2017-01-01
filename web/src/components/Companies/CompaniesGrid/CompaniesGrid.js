@@ -2,6 +2,7 @@ import React from "react";
 import ContentClear from "material-ui/svg-icons/content/clear";
 import IconButton from "material-ui/IconButton";
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from "material-ui/Table";
+import "./CompaniesGrid.css"
 
 class CompaniesGrid extends React.Component {
 
@@ -24,7 +25,7 @@ class CompaniesGrid extends React.Component {
                     </TableHeader>
                     <TableBody displayRowCheckbox={false}>{
                         this.props.companies.map((row, index) => (
-                            <TableRow key={index}>
+                            <TableRow className="CompaniesGrid-row" displayBorder={true} key={index} selectable={false}>
                                 <TableRowColumn>{row.id}</TableRowColumn>
                                 <TableRowColumn>{row.name}</TableRowColumn>
                                 <TableRowColumn>{row.description}</TableRowColumn>
@@ -42,10 +43,10 @@ class CompaniesGrid extends React.Component {
     };
 }
 
-const {arrayOf, func, string, shape} = React.PropTypes;
+const {arrayOf, func, number, string, shape} = React.PropTypes;
 
 const companyShape = {
-    id: string,
+    id: number,
     name: string,
     description: string
 }

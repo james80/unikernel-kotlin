@@ -21,10 +21,10 @@ const Companies = (props) => {
     );
 };
 
-const {arrayOf, func, string, shape} = React.PropTypes;
+const {arrayOf, func, number, string, shape} = React.PropTypes;
 
 const companyShape = {
-    id: string,
+    id: number,
     name: string,
     description: string
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 
 const WithCompaniesHandler = (Decorator) => class CompaniesDecorator extends React.Component {
 
@@ -9,20 +10,31 @@ const WithCompaniesHandler = (Decorator) => class CompaniesDecorator extends Rea
         }
     }
 
+    setCompanies = (response) => {
+        const {data} = response;
+        this.setState({
+            companies: data
+        });
+    }
+
     refreshCompanies = () => {
-        console.log("refresh companies");
+        axios.get("/api/companies")
+            .then(this.setCompanies);
     };
 
     addCompany = (company) => {
-        const newCompanies = this.state.companies.concat([{...company, id: "123"}]);
-        this.setState({companies: newCompanies});
-        this.refreshCompanies();
+        axios.post("/api/company", company)
+            .then(this.refreshCompanies);
     };
 
     deleteCompany = (id) => {
-        console.log("delete company " + id);
-        this.refreshCompanies();
+        axios.delete("/api/company/" + id)
+            .then(this.refreshCompanies);
     };
+
+    componentDidMount = () => {
+        this.refreshCompanies();
+    }
 
     render = () => {
         return (
