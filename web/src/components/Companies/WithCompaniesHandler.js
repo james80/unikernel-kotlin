@@ -1,7 +1,7 @@
 import React from "react";
 import axios from 'axios';
 
-const WithCompaniesHandler = (Decorator) => class CompaniesDecorator extends React.Component {
+const WithCompaniesHandler = (DecoratedComponent) => class CompaniesDecorator extends React.Component {
 
     constructor(props) {
         super(props);
@@ -38,7 +38,7 @@ const WithCompaniesHandler = (Decorator) => class CompaniesDecorator extends Rea
 
     render = () => {
         return (
-            <Decorator
+            <DecoratedComponent
                 companies={ this.state.companies }
                 addCompanyCallback={ this.addCompany }
                 deleteCompanyCallback={ this.deleteCompany }
@@ -48,4 +48,4 @@ const WithCompaniesHandler = (Decorator) => class CompaniesDecorator extends Rea
     }
 };
 
-export default (Decorated) => WithCompaniesHandler(Decorated);
+export default (ChildComponent) => WithCompaniesHandler(ChildComponent);
