@@ -1,4 +1,8 @@
 
 .CompaniesGrid-row {
-    background: #d6ffd7;
+    background: rgba(70, 70, 255, 0.02);
+}
+
+.ComapniesGrid-cell {
+    font-size: 1.2em;
 }

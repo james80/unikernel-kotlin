@@ -26,9 +26,15 @@ class CompaniesGrid extends React.Component {
                     <TableBody displayRowCheckbox={false}>{
                         this.props.companies.map((row, index) => (
                             <TableRow className="CompaniesGrid-row" displayBorder={true} key={index} selectable={false}>
-                                <TableRowColumn>{row.id}</TableRowColumn>
-                                <TableRowColumn>{row.name}</TableRowColumn>
-                                <TableRowColumn>{row.description}</TableRowColumn>
+                                <TableRowColumn>
+                                    <span className="ComapniesGrid-cell">{row.id}</span>
+                                </TableRowColumn>
+                                <TableRowColumn>
+                                    <span className="ComapniesGrid-cell">{row.name}</span>
+                                </TableRowColumn>
+                                <TableRowColumn>
+                                    <span className="ComapniesGrid-cell">{row.description}</span>
+                                </TableRowColumn>
                                 <TableRowColumn>
                                     <IconButton id={ row.id } onTouchTap={ this.handleDeleteCompany }>
                                         <ContentClear />
