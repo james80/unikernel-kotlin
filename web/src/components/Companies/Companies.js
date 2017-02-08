@@ -27,7 +27,7 @@ const companyShape = {
     id: number,
     name: string,
     description: string
-}
+};
 
 Companies.propTypes = {
     companies: arrayOf(shape(companyShape)).isRequired,

@@ -15,7 +15,7 @@ const WithCompaniesHandler = (DecoratedComponent) => class CompaniesDecorator ex
         this.setState({
             companies: data
         });
-    }
+    };
 
     refreshCompanies = () => {
         axios.get("/api/companies")
@@ -34,7 +34,7 @@ const WithCompaniesHandler = (DecoratedComponent) => class CompaniesDecorator ex
 
     componentDidMount = () => {
         this.refreshCompanies();
-    }
+    };
 
     render = () => {
         return (

@@ -120,5 +120,4 @@ CompaniesHeader.propTypes = {
     addCompanyCallback: func.isRequired
 };
 
-
 export default CompaniesHeader;

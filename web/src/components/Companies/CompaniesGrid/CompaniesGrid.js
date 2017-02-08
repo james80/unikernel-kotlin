@@ -9,7 +9,7 @@ class CompaniesGrid extends React.Component {
     handleDeleteCompany = (event) => {
         const {id} = event.currentTarget;
         this.props.deleteCompanyCallback(id);
-    }
+    };
 
     render = () => {
         return (
@@ -55,7 +55,7 @@ const companyShape = {
     id: number,
     name: string,
     description: string
-}
+};
 
 CompaniesGrid.propTypes = {
     companies: arrayOf(shape(companyShape)).isRequired,
