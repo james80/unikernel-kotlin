@@ -9,7 +9,6 @@ import org.littleshoot.proxy.HttpFiltersAdapter
 import org.littleshoot.proxy.HttpFiltersSourceAdapter
 import org.littleshoot.proxy.impl.DefaultHttpProxyServer
 
-
 fun main(args: Array<String>) {
 
     val server = DefaultHttpProxyServer.bootstrap()

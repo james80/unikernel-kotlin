@@ -7,8 +7,8 @@ import java.util.concurrent.atomic.AtomicLong
 @Service
 class CompanyService {
 
-    private final var count: AtomicLong = AtomicLong(1)
-    private final var companies: ConcurrentSkipListMap<Long, Company> = ConcurrentSkipListMap()
+    private var count: AtomicLong = AtomicLong(1)
+    private var companies: ConcurrentSkipListMap<Long, Company> = ConcurrentSkipListMap()
 
     fun addCompany(company: Company) {
         var key = count.andIncrement
