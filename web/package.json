@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "author": "Stephen James <james.80@gmail.com>",
   "scripts": {
-    "build": "rm -rf ROOTFS && webpack",
-    "devserver": "webpack-dev-server -d --port 8081 --content-base ROOTFS/static"
+    "build": "webpack",
+    "devserver": "webpack-dev-server -d --port 8081 --content-base app/dist",
+    "start": "node app/start.js",
+    "start:debug": "DEBUG=express:* node app/start.js"
   },
   "dependencies": {
     "axios": "^0.15.3",

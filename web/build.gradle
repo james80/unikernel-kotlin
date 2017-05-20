@@ -15,21 +15,16 @@ buildscript {
     }
 }
 
-task buildScript(type: Exec) {
-    commandLine 'scripts/build.sh'
-    standardOutput = new ByteArrayOutputStream()
-    ext.output = {
-        return standardOutput.toString()
-    }
-}
-
 task clean() << {
-    delete 'ROOTFS'
+    delete 'app/dist'
     delete 'node_modules'
 }
 
 task build() << {
     tasks.npm_install.execute()
     tasks.npm_run_build.execute()
-    tasks.buildScript.execute()
+}
+
+task buildImage(type: Exec) {
+    commandLine 'scripts/build-image.sh'
 }

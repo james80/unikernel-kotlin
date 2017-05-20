@@ -1,17 +1,14 @@
 
-# Gradle #
+# gradle #
 .gradle/
 build/
 
-# Idea #
+# idea #
 .idea/
 
-# Webpack #
+# webpack #
 dist/
 
-# NPM #
+# npm #
 node_modules/
 npm-debug.log
-
-# Capstan #
-ROOTFS/
