@@ -2,6 +2,7 @@ package com.sj
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.stereotype.Component
+import java.util.Arrays
 
 interface Routes {
   fun routes(): Array<Route>
@@ -19,5 +20,9 @@ open class RoutesImpl : Routes {
 
   override fun routes(): Array<Route> {
     return this.routes
+  }
+
+  override fun toString(): String {
+    return "${Arrays.toString(routes)}"
   }
 }

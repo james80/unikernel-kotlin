@@ -8,4 +8,8 @@ class Route {
     this.routePrefix = ""
     this.downstream = ""
   }
+
+  override fun toString(): String {
+    return "Route(routePrefix='$routePrefix', downstream='$downstream')"
+  }
 }

@@ -11,16 +11,28 @@ buildscript {
     }
 }
 
-task clean() << {
-    delete 'app/dist'
-    delete 'node_modules'
+task clean {
+    doLast {
+        delete 'app/dist'
+        delete 'node_modules'
+    }
 }
 
-task build() << {
-    tasks.npm_install.execute()
-    tasks.npm_run_build.execute()
+task build {
+    doLast {
+        tasks.npm_install.execute()
+        tasks.npm_run_build.execute()
+    }
 }
 
 task buildImage(type: Exec) {
     commandLine 'scripts/build-image.sh'
+}
+
+task runImage(type: Exec) {
+    commandLine 'scripts/run-image.sh'
+}
+
+task rmImage(type: Exec) {
+    commandLine 'scripts/rm-image.sh'
 }

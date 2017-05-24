@@ -1,0 +1,5 @@
+routes:
+  - routePrefix: '/api/'
+    downstream: '192.168.56.107:8080'
+  - routePrefix: '/'
+    downstream: '192.168.56.108:8081'

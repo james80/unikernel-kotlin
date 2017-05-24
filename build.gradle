@@ -9,3 +9,7 @@ buildscript {
         spring_boot_version = '1.5.3.RELEASE'
     }
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.5'
+}

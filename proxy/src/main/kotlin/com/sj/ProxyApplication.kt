@@ -18,6 +18,9 @@ open class ProxyApplication(var routes: Routes) {
 
   @Bean
   open fun init() = CommandLineRunner {
+
+    System.out.println("Routes: ${routes}")
+    
     val server = DefaultHttpProxyServer.bootstrap()
         .withPort(8001)
         .withAllowLocalOnly(true)

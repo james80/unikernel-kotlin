@@ -35,3 +35,11 @@ dependencies {
 task buildImage(type: Exec) {
     commandLine 'scripts/build-image.sh'
 }
+
+task runImage(type: Exec) {
+    commandLine 'scripts/run-image.sh'
+}
+
+task rmImage(type: Exec) {
+    commandLine 'scripts/rm-image.sh'
+}
