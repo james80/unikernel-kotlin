@@ -1,0 +1,5 @@
+routes:
+  - routePrefix: '/api/'
+    downstream: 'localhost:8080'
+  - routePrefix: '/'
+    downstream: 'localhost:8081'

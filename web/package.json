@@ -4,7 +4,7 @@
   "author": "Stephen James <james.80@gmail.com>",
   "scripts": {
     "build": "webpack",
-    "devserver": "webpack-dev-server -d --port 8081 --content-base app/dist",
+    "build:watch": "webpack --watch",
     "start": "node app/start.js",
     "start:debug": "DEBUG=express:* node app/start.js"
   },
@@ -27,8 +27,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.21.0",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^1.13.1"
   },
   "engine": "node 6.9.2"
 }

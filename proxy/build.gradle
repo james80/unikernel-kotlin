@@ -1,18 +1,13 @@
 apply plugin: 'kotlin'
-apply plugin: 'application'
-
-mainClassName = 'com.sj.ProxyApplicationKt'
+apply plugin: 'org.springframework.boot'
 
 buildscript {
-    ext {
-        kotlin_version = '1.1.1'
-        littleproxy_version = '1.1.0'
-    }
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version",
+                "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
     }
 }
 
@@ -22,17 +17,6 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
-            "org.littleshoot:littleproxy:$littleproxy_version"
-}
-
-jar {
-    baseName = 'unikernel-kotlin-proxy'
-    version = ''
-    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
-    manifest {
-        attributes(
-                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
-                'Main-Class': mainClassName
-        )
-    }
+            "org.littleshoot:littleproxy:$littleproxy_version",
+            "org.springframework.boot:spring-boot-starter:$spring_boot_version"
 }
