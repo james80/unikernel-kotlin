@@ -1,17 +1,15 @@
 package com.sj
 
-import org.springframework.stereotype.Service
 import java.util.concurrent.ConcurrentSkipListMap
 import java.util.concurrent.atomic.AtomicLong
 
-@Service
 class CompanyService {
 
-  private var count: AtomicLong = AtomicLong(1)
-  private var companies: ConcurrentSkipListMap<Long, Company> = ConcurrentSkipListMap()
+  private val count: AtomicLong = AtomicLong(1)
+  private val companies: ConcurrentSkipListMap<Long, Company> = ConcurrentSkipListMap()
 
   fun addCompany(company: Company) {
-    var key = count.andIncrement
+    val key = count.andIncrement
     companies.put(key, Company(
         id = key,
         name = company.name,

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-unik stop --instance unikernel-kotlin-web;
-sleep 5;
-unik rm --instance unikernel-kotlin-web;
+unik rm --force --instance unikernel-kotlin-web
+
+unik rmi --force --image unikernel-kotlin-web

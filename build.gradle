@@ -6,7 +6,7 @@ buildscript {
         gradle_node_version = '1.0.1'
         kotlin_version = '1.1.2'
         littleproxy_version = '1.1.0'
-        spring_boot_version = '1.5.3.RELEASE'
+        rapidoid_version = '5.3.4'
     }
 }
 
