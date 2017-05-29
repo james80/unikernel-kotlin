@@ -2,9 +2,8 @@
 
 unik build \
   --force \
-  --name unikernel-kotlin-api \
+  --name api \
   --path . \
   --base rump \
   --language java \
-  --provider virtualbox \
-  --args a=a
+  --provider virtualbox

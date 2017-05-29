@@ -8,27 +8,13 @@ class CompanyService {
   private val count: AtomicLong = AtomicLong(1)
   private val companies: ConcurrentSkipListMap<Long, Company> = ConcurrentSkipListMap()
 
-  fun addCompany(company: Company) {
-    val key = count.andIncrement
-    companies.put(key, Company(
-        id = key,
-        name = company.name,
-        description = company.description))
-  }
+  fun addCompany(company: Company): Company = count.getAndIncrement()
+      .let { key ->
+        Company(id = key, name = company.name, description = company.description)
+            .also { c -> companies.put(key, c) }
+      }
 
-  fun updateCompany(id: Long, company: Company) {
-    companies.put(id, Company(
-        id = id,
-        name = company.name,
-        description = company.description))
-  }
+  fun getCompanies(): List<Company> = companies.entries.map { entry -> entry.value }
 
-  fun getCompanies(): List<Company> {
-    return companies.entries.map { entry -> entry.value }
-  }
-
-  fun deleteCompany(id: Long) {
-    companies.remove(id)
-  }
-
+  fun deleteCompany(id: Long) = companies.remove(id)
 }

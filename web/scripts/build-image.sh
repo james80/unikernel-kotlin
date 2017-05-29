@@ -2,7 +2,7 @@
 
 unik build \
   --force \
-  --name unikernel-kotlin-web \
+  --name web \
   --path . \
   --base rump \
   --language nodejs \

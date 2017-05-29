@@ -1,26 +1,20 @@
 package com.sj
 
-import org.rapidoid.data.JSON
-import org.rapidoid.http.Req
-import org.rapidoid.setup.On
-
-class ApiApplication
+import com.google.gson.Gson
+import spark.Spark
 
 fun main(args: Array<String>) {
 
+  val gson = Gson()
   val companiesService = CompanyService()
 
-  On.port(8080)
+  Spark.port(8080)
 
-  On.get("/companies").json { -> companiesService.getCompanies() }
+  Spark.get("/companies", { _, _ -> companiesService.getCompanies() }, gson::toJson)
 
-  On.post("/company").json { req: Req ->
-    val company = JSON.parse(req.body(), Company::class.java)
-    companiesService.addCompany(company)
-  }
+  Spark.post("/company", { req, _ ->
+    companiesService.addCompany(gson.fromJson(req.body(), Company::class.java))
+  }, gson::toJson)
 
-  On.delete("/company/{id}").json { req: Req ->
-    val id = req.param("id").toLong()
-    companiesService.deleteCompany(id)
-  }
+  Spark.delete("/company/:id", { req, _ -> companiesService.deleteCompany(req.params(":id").toLong()) })
 }

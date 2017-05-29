@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 unik run \
-  --instanceName unikernel-kotlin-web \
-  --imageName unikernel-kotlin-web \
+  --instanceName web \
+  --imageName web \
   --instanceMemory 1024

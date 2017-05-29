@@ -9,8 +9,6 @@ import org.littleshoot.proxy.HttpFiltersAdapter
 import org.littleshoot.proxy.HttpFiltersSourceAdapter
 import org.littleshoot.proxy.impl.DefaultHttpProxyServer
 
-open class ProxyApplication
-
 fun main(args: Array<String>) {
 
   val config = Config()
@@ -24,11 +22,7 @@ fun main(args: Array<String>) {
       .withName("proxy")
       .start()
 
-  Runtime.getRuntime().addShutdownHook(
-      Thread {
-        server.stop()
-      }
-  )
+  Runtime.getRuntime().addShutdownHook(Thread { server.stop() })
 }
 
 private fun getFiltersSource(routes: List<Route>): HttpFiltersSourceAdapter {
