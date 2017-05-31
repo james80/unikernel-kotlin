@@ -10,11 +10,22 @@ fun main(args: Array<String>) {
 
   Spark.port(8080)
 
-  Spark.get("/companies", { _, _ -> companiesService.getCompanies() }, gson::toJson)
+  Spark.get(
+      "/companies",
+      { _, _ -> companiesService.getCompanies() },
+      gson::toJson
+  )
 
-  Spark.post("/company", { req, _ ->
-    companiesService.addCompany(gson.fromJson(req.body(), Company::class.java))
-  }, gson::toJson)
+  Spark.post(
+      "/company",
+      { req, _ -> companiesService.addCompany(gson.fromJson(req.body(), Company::class.java)) },
+      gson::toJson
+  )
 
-  Spark.delete("/company/:id", { req, _ -> companiesService.deleteCompany(req.params(":id").toLong()) })
+  Spark.delete(
+      "/company/:id",
+      { req, _ -> companiesService.deleteCompany(req.params(":id").toLong()) }
+  )
+
+  Runtime.getRuntime().addShutdownHook(Thread { Spark.stop() })
 }
